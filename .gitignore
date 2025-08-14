@@ -88,8 +88,28 @@ jspm_packages/
 # Yarn Integrity file
 .yarn-integrity
 
-# Project specific
+# Project specific - Bendscape
 /bendscape/node_modules
 /bendscape/.next
 /bendscape/out
 /bendscape/.env*.local
+/bendscape/dist
+/bendscape/build
+
+# Development artifacts
+.turbo
+*.tsbuildinfo
+
+# Debug files
+debug.log
+error.log
+
+# Backup files
+*.backup
+*.bak
+*.orig
+
+# TODO and issue tracking (uncomment if you want to ignore)
+# TODO.md
+# ISSUES.md
+# BUGS.md

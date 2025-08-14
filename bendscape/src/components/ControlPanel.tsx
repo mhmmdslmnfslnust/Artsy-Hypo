@@ -49,26 +49,26 @@ export const ControlPanel: React.FC<ControlPanelProps> = ({
   const presets = PresetManager.loadPresets();
 
   return (
-    <div className="bg-white p-6 rounded-lg shadow-lg space-y-6 max-h-[80vh] overflow-y-auto">
+    <div className="bg-white p-6 rounded-lg shadow-lg space-y-6 max-h-[80vh] overflow-y-auto border border-gray-200">
       <div className="flex justify-between items-center border-b pb-4">
         <h2 className="text-xl font-bold text-gray-800">Bendscape Controls</h2>
-        <div className="flex gap-2">
+        <div className="flex gap-2 flex-wrap">
           <button
             onClick={onRandomize}
-            className="px-3 py-1 text-sm bg-purple-500 text-white rounded hover:bg-purple-600 transition-colors"
+            className="px-3 py-1 text-sm bg-purple-500 text-white rounded hover:bg-purple-600 transition-colors font-medium"
           >
             🎲 Random
           </button>
           <button
             onClick={onGenerate}
             disabled={isGenerating}
-            className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 disabled:opacity-50 transition-colors"
+            className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 disabled:opacity-50 transition-colors font-medium"
           >
             {isGenerating ? '⏳ Generating...' : '🎨 Generate'}
           </button>
           <button
             onClick={onClear}
-            className="px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600 transition-colors"
+            className="px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600 transition-colors font-medium"
           >
             🗑️ Clear
           </button>
@@ -81,7 +81,7 @@ export const ControlPanel: React.FC<ControlPanelProps> = ({
         <div className="flex gap-2">
           <select
             onChange={handlePresetLoad}
-            className="flex-1 p-2 border border-gray-300 rounded focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+            className="flex-1 p-2 border border-gray-300 rounded focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white text-gray-800"
             defaultValue=""
           >
             <option value="">Select preset...</option>
@@ -93,7 +93,7 @@ export const ControlPanel: React.FC<ControlPanelProps> = ({
           </select>
           <button
             onClick={handlePresetSave}
-            className="px-3 py-2 bg-gray-500 text-white rounded hover:bg-gray-600 transition-colors"
+            className="px-3 py-2 bg-gray-500 text-white rounded hover:bg-gray-600 transition-colors font-medium"
           >
             💾 Save
           </button>
@@ -131,38 +131,38 @@ export const ControlPanel: React.FC<ControlPanelProps> = ({
           
           {parameters.lengthMode === 'fixed' ? (
             <div>
-              <label className="block text-sm text-gray-600">Fixed Length: {parameters.fixedLength}</label>
+              <label className="block text-sm text-gray-600 font-medium mb-1">Fixed Length: {parameters.fixedLength}</label>
               <input
                 type="range"
                 min="10"
                 max="200"
                 value={parameters.fixedLength}
                 onChange={(e) => updateParameter('fixedLength', Number(e.target.value))}
-                className="w-full"
+                className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer slider"
               />
             </div>
           ) : (
             <div className="grid grid-cols-2 gap-2">
               <div>
-                <label className="block text-sm text-gray-600">Min: {parameters.minLength}</label>
+                <label className="block text-sm text-gray-600 font-medium mb-1">Min: {parameters.minLength}</label>
                 <input
                   type="range"
                   min="5"
                   max="100"
                   value={parameters.minLength}
                   onChange={(e) => updateParameter('minLength', Number(e.target.value))}
-                  className="w-full"
+                  className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer slider"
                 />
               </div>
               <div>
-                <label className="block text-sm text-gray-600">Max: {parameters.maxLength}</label>
+                <label className="block text-sm text-gray-600 font-medium mb-1">Max: {parameters.maxLength}</label>
                 <input
                   type="range"
                   min="20"
                   max="300"
                   value={parameters.maxLength}
                   onChange={(e) => updateParameter('maxLength', Number(e.target.value))}
-                  className="w-full"
+                  className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer slider"
                 />
               </div>
             </div>
