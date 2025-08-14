@@ -1,0 +1,53 @@
+I want to build a medium-sized interactive art generator called Bendscape.
+
+The program should:
+
+Draw lines that have random lengths within a specified range (user sets min and max length, or chooses a fixed length).
+
+After each line is drawn, the next segment should bend at an angle (default 45°, but adjustable). The angle can be:
+
+Fixed
+
+Random within a range set by the user
+
+Stopping conditions should be selectable:
+
+When the new line’s endpoint is within a minimum distance from the starting point
+
+After a certain number of lines
+
+(Optional) When a line exactly meets the starting point by chance
+
+Provide color options:
+
+Fixed color for all lines
+
+Random color per line (option for pastel, bold, gradient, etc.)
+
+Include a post-art mode where the generated pattern can be saved as a file (SVG or JSON-like structure). In this mode, the user can:
+
+View individual lengths and angles
+
+Display all angles and lengths at once for analysis
+
+Export a version with visual annotations showing the lengths and angles on the artwork
+
+Design the UI so that users can adjust parameters live and see updates instantly.
+
+For the technology stack, suggest the most suitable approach for:
+
+A browser-based implementation using JavaScript + HTML Canvas or p5.js for portability.
+
+A desktop implementation using Python + PyQt5 or Tkinter with a drawing library like matplotlib or Pillow.
+
+I want clean, modular code where the drawing logic is separate from the UI. Use object-oriented programming so that different drawing “rules” (length mode, angle mode, stopping condition) are implemented as interchangeable strategies.
+
+Also make sure the program can:
+
+Save and load parameter presets
+
+Export the generated image as PNG and SVG
+
+Include keyboard shortcuts for starting/stopping and randomizing settings
+
+First, propose an architecture and then implement a minimum viable version in the recommended technology.
